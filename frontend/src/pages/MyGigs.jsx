@@ -1,0 +1,114 @@
+import { useEffect } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { useNavigate } from 'react-router-dom'
+import { getMyGigs, deleteGig } from '../store/slices/gigSlice'
+import toast from 'react-hot-toast'
+
+const MyGigs = () => {
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+  const { myGigs, isLoading } = useSelector((state) => state.gig)
+
+  useEffect(() => {
+    dispatch(getMyGigs())
+  }, [dispatch])
+
+  const handleDelete = async (id) => {
+    if (!window.confirm('Are you sure you want to delete this gig?')) {
+      return
+    }
+    
+    try {
+      await dispatch(deleteGig(id)).unwrap()
+      toast.success('Gig deleted successfully!')
+    } catch (err) {
+      toast.error(err || 'Failed to delete gig')
+    }
+  }
+
+  return (
+    <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-6">
+      <div className="flex flex-col sm:flex-row sm:justify-between sm:items-center gap-4 mb-6 sm:mb-8 pb-4 border-b border-gray-200">
+        <div>
+          <h1 className="text-xl sm:text-2xl font-medium text-gray-800 tracking-tight">My Posted Gigs</h1>
+          <p className="text-xs sm:text-sm text-gray-500 mt-1">Manage and track your posted projects</p>
+        </div>
+        <button
+          onClick={() => navigate('/create-gig')}
+          className="bg-emerald-600 text-white px-4 sm:px-5 py-2 rounded-lg hover:bg-emerald-700 font-medium transition-colors text-sm sm:text-base w-full sm:w-auto"
+        >
+          Post New Gig
+        </button>
+      </div>
+
+      {isLoading ? (
+        <div className="text-center py-8">Loading your gigs...</div>
+      ) : myGigs.length === 0 ? (
+        <div className="text-center py-8 text-gray-500">
+          You haven't posted any gigs yet
+        </div>
+      ) : (
+        <div className="space-y-4">
+          {myGigs.map((gig) => (
+            <div
+              key={gig._id}
+              className="bg-white rounded-lg border border-gray-200 p-5 hover:shadow-md transition-shadow"
+            >
+              <div className="flex justify-between items-start mb-3">
+                <div className="flex-1">
+                  <div className="flex items-center gap-3 mb-2">
+                    <h3 className="text-lg font-semibold text-gray-900">{gig.title}</h3>
+                    <span
+                      className={`px-2.5 py-0.5 rounded-full text-xs font-medium uppercase ${
+                        gig.status === 'open'
+                          ? 'bg-emerald-100 text-emerald-700'
+                          : 'bg-gray-100 text-gray-700'
+                      }`}
+                    >
+                      {gig.status}
+                    </span>
+                  </div>
+                  <p className="text-gray-600 mb-3 leading-relaxed line-clamp-2 text-sm">
+                    {gig.description}
+                  </p>
+                  <div className="flex items-baseline gap-2">
+                    <span className="text-2xl font-bold text-gray-900">
+                      ${gig.budget}
+                    </span>
+                    <span className="text-xs text-gray-500">project budget</span>
+                  </div>
+                  {gig.assignedTo && (
+                    <div className="mt-3 p-3 bg-emerald-50 rounded-lg border border-emerald-200">
+                      <p className="text-emerald-700 text-sm">
+                        <span className="font-semibold">Assigned to:</span> {gig.assignedTo.name}
+                      </p>
+                    </div>
+                  )}
+                </div>
+              </div>
+
+              <div className="flex gap-2 mt-3 pt-3 border-t border-gray-200">
+                <button
+                  onClick={() => navigate(`/gig/${gig._id}`)}
+                  className="bg-emerald-600 hover:bg-emerald-700 text-white px-4 py-2 rounded-lg text-sm font-medium transition-colors"
+                >
+                  View Details
+                </button>
+                {gig.status === 'open' && (
+                  <button
+                    onClick={() => handleDelete(gig._id)}
+                    className="border border-red-300 text-red-600 px-4 py-2 rounded-lg hover:bg-red-50 text-sm font-medium transition-colors"
+                  >
+                    Delete
+                  </button>
+                )}
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  )
+}
+
+export default MyGigs
