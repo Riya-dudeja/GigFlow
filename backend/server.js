@@ -15,16 +15,20 @@ dotenv.config();
 
 const app = express();
 const httpServer = createServer(app);
+
+// Normalize frontend URL (remove trailing slash)
+const frontendUrl = (process.env.FRONTEND_URL || 'http://localhost:5173').replace(/\/$/, '');
+
 const io = new Server(httpServer, {
   cors: {
-    origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+    origin: frontendUrl,
     credentials: true
   }
 });
 
 // Middleware
 app.use(cors({
-  origin: process.env.FRONTEND_URL || 'http://localhost:5173',
+  origin: frontendUrl,
   credentials: true
 }));
 app.use(express.json());
