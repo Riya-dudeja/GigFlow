@@ -48,6 +48,19 @@ io.on('connection', (socket) => {
 app.set('io', io);
 
 // api routes
+app.get('/', (req, res) => {
+  res.json({ 
+    message: 'GigFlow API Server',
+    version: '1.0.0',
+    endpoints: {
+      health: '/api/health',
+      auth: '/api/auth',
+      gigs: '/api/gigs',
+      bids: '/api/bids'
+    }
+  });
+});
+
 app.use('/api/auth', authRoutes);
 app.use('/api/gigs', gigRoutes);
 app.use('/api/bids', bidRoutes);
