@@ -14,7 +14,7 @@ const Navbar = () => {
   const handleLogout = async () => {
     await dispatch(logout())
     toast.success('Logged out')
-    navigate('/login')
+    navigate('/')
     setIsMobileMenuOpen(false)
   }
 
