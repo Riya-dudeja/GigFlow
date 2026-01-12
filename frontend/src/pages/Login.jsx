@@ -54,7 +54,7 @@ const Login = () => {
               onChange={handleChange}
               required
               placeholder="you@example.com"
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors text-sm sm:text-base"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors text-sm sm:text-base"
             />
           </div>
 
@@ -67,7 +67,7 @@ const Login = () => {
               onChange={handleChange}
               required
               placeholder="Enter your password"
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors"
             />
           </div>
 
@@ -80,7 +80,7 @@ const Login = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:from-gray-400 disabled:to-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg shadow-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/60 hover:-translate-y-0.5"
+            className="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             {isLoading ? 'Signing in...' : 'Sign In'}
           </button>
@@ -88,7 +88,7 @@ const Login = () => {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Don't have an account?{' '}
-          <Link to="/register" className="text-emerald-600 hover:text-emerald-700 font-medium">
+          <Link to="/register" className="text-gray-900 hover:text-gray-700 font-medium">
             Create account
           </Link>
         </p>

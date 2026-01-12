@@ -55,7 +55,7 @@ const Register = () => {
               onChange={handleChange}
               required
               placeholder="John Doe"
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent transition-colors text-sm sm:text-base"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent transition-colors text-sm sm:text-base"
             />
           </div>
 
@@ -96,7 +96,7 @@ const Register = () => {
           <button
             type="submit"
             disabled={isLoading}
-            className="w-full bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:from-gray-400 disabled:to-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg shadow-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/60 hover:-translate-y-0.5"
+            className="w-full bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl hover:-translate-y-0.5"
           >
             {isLoading ? 'Creating account...' : 'Create Account'}
           </button>
@@ -104,7 +104,7 @@ const Register = () => {
 
         <p className="mt-6 text-center text-sm text-gray-600">
           Already have an account?{' '}
-          <Link to="/login" className="text-emerald-600 hover:text-emerald-700 font-medium">
+          <Link to="/login" className="text-gray-900 hover:text-gray-700 font-medium">
             Sign in
           </Link>
         </p>

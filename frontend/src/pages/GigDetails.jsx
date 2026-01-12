@@ -132,7 +132,7 @@ const GigDetails = () => {
             <div className="px-4 sm:px-6 lg:px-8 pb-6 border-t border-gray-200">
               <button
                 onClick={() => setShowBidForm(true)}
-                className="w-full mt-6 bg-emerald-600 hover:bg-emerald-700 text-white px-6 py-3 rounded-lg font-medium transition-colors text-sm sm:text-base"
+                className="w-full mt-6 bg-gray-900 hover:bg-gray-800 text-white px-6 py-3 rounded-lg font-medium transition-colors text-sm sm:text-base"
               >
                 Submit a Proposal
               </button>
@@ -152,7 +152,7 @@ const GigDetails = () => {
                     required
                     rows="5"
                     placeholder="Describe your relevant experience, approach to this project, and why you're the best fit..."
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-sm resize-none"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 text-sm resize-none"
                   />
                 </div>
 
@@ -169,7 +169,7 @@ const GigDetails = () => {
                       required
                       min="0"
                       placeholder="0.00"
-                      className="w-full pl-9 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-emerald-500 text-lg font-medium"
+                      className="w-full pl-9 pr-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 text-lg font-medium"
                     />
                   </div>
                   <p className="mt-2 text-xs text-gray-500">Client budget: <span className="font-medium text-gray-700">${currentGig.budget}</span></p>
@@ -179,7 +179,7 @@ const GigDetails = () => {
                   <button
                     type="submit"
                     disabled={bidLoading}
-                    className="flex-1 bg-emerald-600 hover:bg-emerald-700 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-medium transition-colors"
+                    className="flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 disabled:cursor-not-allowed text-white py-3 px-4 rounded-lg font-medium transition-colors"
                   >
                     {bidLoading ? 'Submitting...' : 'Submit Proposal'}
                   </button>
@@ -201,7 +201,7 @@ const GigDetails = () => {
             <div className="px-8 py-5 border-b border-gray-200">
               <div className="flex items-center justify-between">
                 <h2 className="text-lg font-semibold text-gray-900">Proposals Received</h2>
-                <span className="inline-flex items-center justify-center min-w-[28px] h-7 px-2.5 bg-emerald-600 text-white text-sm font-medium rounded-full">
+                <span className="inline-flex items-center justify-center min-w-[28px] h-7 px-2.5 bg-gray-900 text-white text-sm font-medium rounded-full">
                   {bids.length}
                 </span>
               </div>
@@ -212,7 +212,7 @@ const GigDetails = () => {
                 <div key={bid._id} className="px-8 py-6 hover:bg-gray-50 transition-colors">
                   <div className="flex items-start justify-between gap-6 mb-4">
                     <div className="flex items-start gap-4">
-                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-emerald-400 to-emerald-600 rounded-full flex items-center justify-center text-white font-medium text-lg">
+                      <div className="flex-shrink-0 w-12 h-12 bg-gradient-to-br from-gray-700 to-gray-900 rounded-full flex items-center justify-center text-white font-medium text-lg">
                         {bid.freelancerId.name.charAt(0).toUpperCase()}
                       </div>
                       <div>

@@ -23,6 +23,20 @@ const CreateGig = () => {
   const handleSubmit = async (e) => {
     e.preventDefault()
     
+    // Validation
+    if (!formData.title.trim()) {
+      toast.error('Project title is required')
+      return
+    }
+    if (!formData.description.trim()) {
+      toast.error('Project description is required')
+      return
+    }
+    if (!formData.budget || formData.budget <= 0) {
+      toast.error('Please enter a valid budget amount')
+      return
+    }
+    
     try {
       await dispatch(createGig(formData)).unwrap()
       toast.success('Gig created successfully!')
@@ -57,7 +71,7 @@ const CreateGig = () => {
               onChange={handleChange}
               required
               placeholder="e.g., Need a React developer for dashboard"
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent text-sm sm:text-base"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm sm:text-base"
             />
           </div>
 
@@ -72,7 +86,7 @@ const CreateGig = () => {
               required
               rows="6"
               placeholder="Describe your project requirements, timeline, and any specific skills needed..."
-              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+              className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />
           </div>
 
@@ -90,7 +104,7 @@ const CreateGig = () => {
                 required
                 min="0"
                 placeholder="500"
-                className="w-full pl-8 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-emerald-500 focus:border-transparent"
+                className="w-full pl-8 pr-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
               />
             </div>
           </div>
@@ -99,7 +113,7 @@ const CreateGig = () => {
             <button
               type="submit"
               disabled={isLoading}
-              className="flex-1 bg-gradient-to-r from-emerald-600 to-teal-600 hover:from-emerald-700 hover:to-teal-700 disabled:from-gray-400 disabled:to-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg shadow-emerald-500/50 hover:shadow-xl hover:shadow-emerald-500/60"
+              className="flex-1 bg-gray-900 hover:bg-gray-800 disabled:bg-gray-400 text-white py-2.5 rounded-lg font-medium transition-all shadow-lg hover:shadow-xl"
             >
               {isLoading ? 'Creating...' : 'Post Gig'}
             </button>

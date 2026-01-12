@@ -42,7 +42,7 @@ function App() {
   }
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-emerald-50/20 to-teal-50/30">
+    <div className="min-h-screen bg-gradient-to-br from-gray-50 via-gray-100/30 to-slate-50">
       <Navbar />
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
         <Routes>

@@ -43,7 +43,7 @@ const MyBids = () => {
                       bid.gigId.status === 'open'
                         ? 'bg-blue-100 text-blue-800'
                         : bid.gigId.status === 'assigned'
-                        ? 'bg-green-100 text-green-800'
+                        ? 'bg-gray-100 text-gray-900'
                         : 'bg-gray-100 text-gray-800'
                     }`}>
                       {bid.gigId.status.toUpperCase()}
@@ -76,12 +76,12 @@ const MyBids = () => {
               </div>
 
               {bid.status === 'hired' && (
-                <div className="mb-4 p-4 bg-emerald-50 rounded-lg border border-emerald-200">
+                <div className="mb-4 p-4 bg-gray-50 rounded-lg border border-gray-200">
                   <div className="flex items-center gap-2">
-                    <svg className="w-5 h-5 text-emerald-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-5 h-5 text-gray-900" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
                     </svg>
-                    <p className="text-emerald-800 font-medium text-sm">
+                    <p className="text-gray-900 font-medium text-sm">
                       Congratulations! You've been hired for this project.
                     </p>
                   </div>
@@ -98,7 +98,7 @@ const MyBids = () => {
 
               <button
                 onClick={() => navigate(`/gig/${bid.gigId._id}`)}
-                className="w-full bg-emerald-600 hover:bg-emerald-700 text-white py-2.5 rounded-lg text-sm font-medium transition-colors"
+                className="w-full bg-gray-900 hover:bg-gray-800 text-white py-2.5 rounded-lg text-sm font-medium transition-colors"
               >
                 View Gig Details
               </button>
