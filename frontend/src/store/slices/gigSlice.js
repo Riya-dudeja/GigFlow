@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import axios from '../../config/axios'
 import API_URL from '../../config/api'
 
 const GIG_URL = `${API_URL}/api/gigs`
-
-axios.defaults.baseURL = API_URL
-axios.defaults.withCredentials = true
 
 export const getGigs = createAsyncThunk('gig/getGigs', async (query = '', thunkAPI) => {
   try {

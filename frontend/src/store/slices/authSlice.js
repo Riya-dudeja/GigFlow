@@ -1,11 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import axios from 'axios'
+import axios from '../../config/axios'
 import API_URL from '../../config/api'
 
 const AUTH_URL = `${API_URL}/api/auth`
-
-axios.defaults.baseURL = API_URL
-axios.defaults.withCredentials = true
 
 export const checkAuth = createAsyncThunk('auth/checkAuth', async (_, thunkAPI) => {
   try {
