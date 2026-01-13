@@ -239,7 +239,7 @@ When a freelancer is hired, they receive an instant Socket.io notification witho
 
 ## Author
 
-[Your Name]
+Riya
 
 ## License
 
