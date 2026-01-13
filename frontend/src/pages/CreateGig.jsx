@@ -70,7 +70,7 @@ const CreateGig = () => {
               value={formData.title}
               onChange={handleChange}
               required
-              placeholder="e.g., Need a React developer for dashboard"
+              placeholder="Build a mobile app for my business"
               className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent text-sm sm:text-base"
             />
           </div>
@@ -85,7 +85,7 @@ const CreateGig = () => {
               onChange={handleChange}
               required
               rows="6"
-              placeholder="Describe your project requirements, timeline, and any specific skills needed..."
+              placeholder="Tell us about your project. What do you need done? What skills are required? When do you need it completed?"
               className="w-full px-3 py-2.5 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-transparent"
             />
           </div>

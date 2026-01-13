@@ -151,7 +151,7 @@ const GigDetails = () => {
                     onChange={(e) => setBidData({ ...bidData, message: e.target.value })}
                     required
                     rows="5"
-                    placeholder="Describe your relevant experience, approach to this project, and why you're the best fit..."
+                    placeholder="Why are you the right person for this job? Share your experience and how you'll complete this project."
                     className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-gray-900 focus:border-gray-900 text-sm resize-none"
                   />
                 </div>
