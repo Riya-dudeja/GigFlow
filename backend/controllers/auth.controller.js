@@ -35,7 +35,8 @@ export const register = async (req, res) => {
 
     res.status(201).json({
       success: true,
-      data: user
+      data: user,
+      token: token
     });
   } catch (error) {
     console.error('Register error:', error);
@@ -78,7 +79,8 @@ export const login = async (req, res) => {
 
     res.status(200).json({
       success: true,
-      data: user
+      data: user,
+      token: token
     });
   } catch (error) {
     console.error('Login error:', error);

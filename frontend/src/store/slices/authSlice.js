@@ -16,6 +16,10 @@ export const checkAuth = createAsyncThunk('auth/checkAuth', async (_, thunkAPI) 
 export const register = createAsyncThunk('auth/register', async (userData, thunkAPI) => {
   try {
     const response = await axios.post(`${AUTH_URL}/register`, userData)
+    // Store token in localStorage
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token)
+    }
     return response.data.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || 'Registration failed')
@@ -25,6 +29,10 @@ export const register = createAsyncThunk('auth/register', async (userData, thunk
 export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) => {
   try {
     const response = await axios.post(`${AUTH_URL}/login`, userData)
+    // Store token in localStorage
+    if (response.data.token) {
+      localStorage.setItem('token', response.data.token)
+    }
     return response.data.data
   } catch (error) {
     return thunkAPI.rejectWithValue(error.response?.data?.message || 'Login failed')
@@ -34,7 +42,10 @@ export const login = createAsyncThunk('auth/login', async (userData, thunkAPI) =
 export const logout = createAsyncThunk('auth/logout', async (_, thunkAPI) => {
   try {
     await axios.post(`${AUTH_URL}/logout`)
+    // Remove token from localStorage
+    localStorage.removeItem('token')
   } catch (error) {
+    localStorage.removeItem('token')
     return thunkAPI.rejectWithValue(error.response?.data?.message || 'Logout failed')
   }
 })
